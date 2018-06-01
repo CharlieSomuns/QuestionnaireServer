@@ -1,0 +1,17 @@
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  position: fixed;
+  height: 60px;
+  line-height: 60px;
+  background-color: black;
+}
+.header .btns {
+  float: right;
+  height: 60px;
+}
+.footer {
+  height: 500px;
+}
