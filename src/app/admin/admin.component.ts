@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Ajax } from '../utils/ajax'
+
 @Component({
     selector: 'admin-root',
     templateUrl: './admin.component.html',
@@ -11,6 +13,9 @@ export class AdminComponent {
 
     }
     get() {
+
+    }
+    logout() {
 
     }
 }

@@ -1,0 +1,31 @@
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  height: 50px;
+  line-height: 50px;
+  background-color: white;
+  box-shadow: 0 1px 5px silver;
+}
+.header .right {
+  text-align: right;
+  float: right;
+  width: 300px;
+}
+.header .right .btn {
+  margin-right: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  border-right: solid silver 1px;
+}
+.header .right .btn:hover {
+  color: #3da8f5;
+}
+.header .right .btn:last-child {
+  border-right: none;
+}
+.content {
+  margin-top: 60px;
+}

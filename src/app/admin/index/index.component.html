@@ -1,0 +1,31 @@
+<div>
+
+</div>
+<div class="projects">
+
+    <div class="utils">
+        <span class="filters">
+            <span *ngFor="let filter of filters" class='filter btn-sm btn btn-default' [class.btn-primary]="filter.active" (click)="get_questionnaire(filter)">{{filter.name}}</span>
+        </span>
+        <span>总数 900</span>
+        &nbsp;&nbsp;
+        <span>
+            每页数量
+            <select name="" id="">
+                <option value="15">15</option>
+                <option value="25">25</option>
+                <option value="35">35</option>
+            </select>
+        </span>
+        &nbsp;&nbsp;
+        <i class="glyphicon glyphicon-chevron-left" title="上一页"></i>
+        &nbsp;&nbsp;
+        <i class="glyphicon glyphicon-chevron-right" title="下一页"></i>
+    </div>
+    <div class="project">
+
+    </div>
+    <div class="add-project">
+        添加项目
+    </div>
+</div>
