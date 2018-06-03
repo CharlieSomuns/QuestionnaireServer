@@ -16,7 +16,6 @@ import { LoginComponent } from './login/login.component'
         CommonModule,
         HttpClientModule,
         AppRoutingModule,
-
     ],
     declarations: [
         AppComponent,

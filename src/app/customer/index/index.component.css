@@ -1,0 +1,9 @@
+.projects .utils {
+  text-align: right;
+}
+.projects .utils .glyphicon {
+  cursor: pointer;
+}
+.projects .utils .filters .filter {
+  margin-right: 8px;
+}
