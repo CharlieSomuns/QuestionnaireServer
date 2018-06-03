@@ -1,6 +1,4 @@
-<div>
-
-</div>
+<div class="white-space"></div>
 <div class="projects">
     <div class="utils">
         <span class="filters">
@@ -16,17 +14,32 @@
                 <option value="35">35</option>
             </select>
         </span>
-        &nbsp;&nbsp;
-        第 {{query_page}} 页
-        &nbsp;&nbsp;
+        &nbsp;&nbsp; 第 {{query_page}} 页 &nbsp;&nbsp;
         <i class="glyphicon glyphicon-chevron-left" title="上一页" (click)="pre_page()"></i>
         &nbsp;&nbsp;
         <i class="glyphicon glyphicon-chevron-right" title="下一页" (click)="next_page()"></i>
     </div>
-    <div class="project" *ngFor="let item of questionnaires;">
-        {{item}}
+    <div class="white-space"></div>
+    <div class="project row" *ngFor="let item of questionnaires;let index=index">
+        <div class="col-md-10 col-sm-10 col-xs-8">
+            {{item.create_date}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.title}}
+        </div>
+        <div class="utils col-md-2 col-sm-2 col-xs-4">
+            <span class="btn btn-xs btn-info" title="修改" *ngIf="item.state!=1 || item.state!=4">
+                <i class="glyphicon glyphicon-pencil"></i>
+            </span>
+            <span class="btn btn-xs btn-danger" title="删除" *ngIf="item.state!=4" (click)="delete(index)">
+                <i class="glyphicon glyphicon-trash"></i>
+            </span>
+            <span class="btn btn-xs btn-success" title="发布" *ngIf="item.state==3">
+                <i class="glyphicon glyphicon-pushpin"></i>
+            </span>
+        </div>
     </div>
-    <div class="add-project project">
-        添加项目
+    <div class="project row" *ngIf="questionnaires.length==0 && query_state!=0">
+        没有问卷
+    </div>
+    <div class="add-project project row" (click)="put()" *ngIf="query_state==0">
+        <div class="col-md-12">添加项目</div>
     </div>
 </div>

@@ -1,3 +1,9 @@
+.white-space {
+  height: 30px;
+}
+.projects {
+  position: relative;
+}
 .projects .utils {
   text-align: right;
 }
@@ -6,4 +12,24 @@
 }
 .projects .utils .filters .filter {
   margin-right: 8px;
+}
+.projects .project {
+  border: solid lightgray 1px;
+  position: relative;
+  margin-top: 5px;
+  padding: 10px 15px;
+  border-radius: 2px;
+}
+.projects .project:hover {
+  box-shadow: 0 1px 2px lightgray;
+  z-index: 1;
+}
+.projects .project .utils {
+  text-align: right;
+}
+.projects .project .utils span {
+  margin-right: 8px;
+}
+.projects .add-project {
+  cursor: pointer;
 }

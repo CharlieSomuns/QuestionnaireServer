@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ajax } from '../../utils/ajax'
 
 @Component({
@@ -6,7 +6,7 @@ import { Ajax } from '../../utils/ajax'
     templateUrl: './index.component.html',
     styleUrls: ['./index.component.css']
 })
-export class IndexComponent {
+export class IndexComponent implements OnInit {
     filters = [
         {
             active: true,
@@ -39,11 +39,22 @@ export class IndexComponent {
             state: 4
         },
     ]
+    api = '/api/v1/customer_questionnaire'
     pages = 10;
     query_state = 0;
     query_limit = 15
     query_page = 1
+    questionnaires = []
+    now=new Date()
+    new_questionnaire = {
+        title: '',
+        deadline: this.now.getFullYear()+'-'+(this.now.getMonth()+1)+'-'+this.now.getDate(),
+        quantity: 100
+    }
 
+    ngOnInit() {
+        this.get()
+    }
     query(filter) {
         for (let item of this.filters) {
             item.active = false
@@ -51,28 +62,29 @@ export class IndexComponent {
         filter.active = true
         this.query_page = 1
         this.query_state = filter.state
-        console.log(this.query_page)
-        this.get_questionnaire()
+        this.get()
     }
     change_limit() {
         this.query_page = 1
-        this.get_questionnaire()
+        this.get()
     }
     pre_page() {
-        if (this.query_page == 1) {
+        this.query_page -= 1
+        if (this.query_page < 1) {
+            this.query_page += 1
             return
         }
-        this.query_page -= 1
-        this.get_questionnaire()
+        this.get()
     }
     next_page() {
-        if (this.query_page == this.pages) {
+        this.query_page += 1
+        if (this.query_page > this.pages) {
+            this.query_page -= 1
             return
         }
-        this.query_page += 1
-        this.get_questionnaire()
+        this.get()
     }
-    get_questionnaire() {
+    get() {
         let that = this
         let ajax = new Ajax()
         let query_data = {
@@ -80,9 +92,32 @@ export class IndexComponent {
             state: that.query_state,
             page: that.query_page,
         }
-        console.log(query_data)
         ajax.success = data => {
+            console.log(data)
+            that.questionnaires = data.objs
+            that.pages = data.pages
         }
-        ajax.get('/api/v1/questionnaire', query_data)
+        ajax.get(that.api, query_data)
+    }
+    delete(index) {
+        let that = this
+        let ensure = window.confirm('确认删除吗?')
+        if (ensure) {
+            let ajax = new Ajax()
+            ajax.success = data => {
+                that.questionnaires.splice(index, 1)
+            }
+            ajax.delete(that.api, {
+                ids:[that.questionnaires[index].id]
+            })
+        }
+    }
+    put() {
+        let that = this
+        let ajax = new Ajax()
+        ajax.success = data => {
+            that.get()
+        }
+        ajax.put(that.api, that.new_questionnaire)
     }
 }
