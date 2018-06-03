@@ -7,11 +7,14 @@ import { FormsModule } from "@angular/forms";
 import { CustomerRoutingModule } from './customer-routing.module'
 import { CustomerComponent } from './customer.component';
 import { IndexComponent } from './index/index.component';
+import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component'
+
 
 @NgModule({
     declarations: [
         CustomerComponent,
         IndexComponent,
+        QuestionnaireFormComponent,
     ],
     imports: [
         CommonModule,

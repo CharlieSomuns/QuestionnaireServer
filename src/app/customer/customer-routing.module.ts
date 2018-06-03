@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router'
 
 import { CustomerComponent } from './customer.component'
 import { IndexComponent } from './index/index.component'
+import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component'
 
 const customerRoutes: Routes = [
     {
@@ -12,6 +13,10 @@ const customerRoutes: Routes = [
             {
                 path:'',
                 component:IndexComponent
+            },
+            {
+                path:'questionnaire-form',
+                component:QuestionnaireFormComponent
             }
         ]
     }
