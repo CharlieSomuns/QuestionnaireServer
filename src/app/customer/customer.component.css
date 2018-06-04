@@ -30,3 +30,6 @@
 .content {
   margin-top: 60px;
 }
+.footer {
+  min-height: 200px;
+}

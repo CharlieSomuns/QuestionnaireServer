@@ -33,3 +33,20 @@
 .projects .add-project {
   cursor: pointer;
 }
+.projects .add-project .new-form {
+  margin-top: 10px;
+}
+.projects .add-project .new-form input {
+  border: none;
+  outline: none;
+  border-bottom: solid silver 2px;
+}
+.projects .add-project .new-form input:focus {
+  border-bottom: solid green 2px;
+}
+.projects .add-project .btns {
+  margin-top: 10px;
+}
+.projects .add-project .btns div {
+  text-align: center;
+}

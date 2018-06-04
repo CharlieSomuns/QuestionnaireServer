@@ -48,12 +48,13 @@ export class IndexComponent implements OnInit {
     query_page = 1
     questionnaires = []
     now = new Date()
+    show_new_form = false
     new_questionnaire = {
         title: '',
         deadline: this.now.getFullYear() + '-' + (this.now.getMonth() + 1) + '-' + this.now.getDate(),
         quantity: 100
     }
-    constructor(private router:Router){
+    constructor(private router: Router) {
 
     }
 
@@ -122,6 +123,7 @@ export class IndexComponent implements OnInit {
         let ajax = new Ajax()
         ajax.success = data => {
             that.get()
+            that.show_new_form = false
         }
         ajax.put(that.api, that.new_questionnaire)
     }

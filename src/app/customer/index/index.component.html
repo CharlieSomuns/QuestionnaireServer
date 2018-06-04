@@ -39,7 +39,34 @@
     <div class="project row" *ngIf="questionnaires.length==0 && query_state!=0">
         没有问卷
     </div>
-    <div class="add-project project row" (click)="put()" *ngIf="query_state==0">
-        <div class="col-md-12">添加问卷</div>
+    <div class="add-project project row" *ngIf="query_state==0">
+        <div class="col-md-12" (click)="show_new_form=!show_new_form">添加问卷</div>
+        <div class="col-md-12 new-form" *ngIf="show_new_form">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    标题:
+                    <input type="text" name="title" [(ngModel)]="new_questionnaire.title">
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    截止日期:
+                    <input type="text" name="deadline" [(ngModel)]="new_questionnaire.deadline" placeholder="YYYY-m-d">
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    数量:
+                    <input type="text" name="quantity" [(ngModel)]="new_questionnaire.quantity">
+                </div>
+            </div>
+            <div class="row btns">
+                <div class="col-md-4 col-sm-3 col-xs-12">
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span class="btn btn-primary" (click)="put()">确认</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="btn btn-default" (click)="show_new_form=false">取消</span>
+                </div>
+                <div class="col-md-4 col-sm-3 col-xs-12">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
