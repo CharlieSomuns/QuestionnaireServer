@@ -11,7 +11,12 @@ import { sessionstorage } from '../../utils/storage'
 export class QuestionnaireFormComponent implements OnInit {
     api = '/api/v1/customer_questionnaire'
     questionnaire_id: any
-    questionnaire: any
+    now = new Date()
+    questionnaire: any = {
+        title: '',
+        deadline: this.now.getFullYear() + '-' + (this.now.getMonth() + 1) + '-' + this.now.getDate(),
+        quantity: 100
+    }
     constructor(private router: Router) {
         this.questionnaire_id = sessionstorage.get('questionnaire_id')
     }

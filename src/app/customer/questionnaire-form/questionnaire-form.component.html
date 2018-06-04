@@ -1,4 +1,26 @@
 <div class="white-space"></div>
+<div class="col-md-12 new-form">
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            标题:
+            <input type="text" name="title" [(ngModel)]="questionnaire.title">
+        </div>
+        <div class="col-md-4 col-sm-12">
+            截止日期:
+            <input type="text" name="deadline" [(ngModel)]="questionnaire.deadline" placeholder="YYYY-m-d">
+        </div>
+        <div class="col-md-4 col-sm-12">
+            数量:
+            <input type="text" name="quantity" [(ngModel)]="questionnaire.quantity">
+        </div>
+    </div>
+</div>
+
 <div>
-    {{questionnaire.title}}
+    问题列表
+</div>
+<div class="row questions">
+    <div class="col-md-12 question">
+
+    </div>
 </div>
