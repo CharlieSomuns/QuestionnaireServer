@@ -5,7 +5,52 @@ input {
   border: none;
   outline: none;
   border-bottom: solid silver 2px;
+  padding: 5px;
 }
 input:focus {
   border-bottom: solid green 2px;
+}
+.questions .question {
+  margin-top: 15px;
+  position: relative;
+}
+.questions .question .edit-btns {
+  position: absolute;
+  width: 100px;
+  right: 10px;
+  top: 10px;
+}
+.questions .question .edit-btns i {
+  cursor: pointer;
+}
+.questions .question .title input {
+  width: 80%;
+}
+.questions .question .items {
+  padding-left: 30px;
+}
+.questions .question .items input {
+  width: 60%;
+}
+.questions .question .items .item span {
+  display: none;
+}
+.questions .question .items .item:hover span {
+  display: inline;
+}
+.questions .question .items .item i {
+  cursor: pointer;
+}
+.questions .question .add-new-item {
+  padding-right: 20px;
+  margin-top: 10px;
+}
+.questions .question .add-new-item i {
+  cursor: pointer;
+}
+.categorys {
+  margin-top: 20px;
+}
+.categorys .category {
+  margin-right: 10px;
 }
