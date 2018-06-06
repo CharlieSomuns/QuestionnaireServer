@@ -16,38 +16,57 @@
     </div>
 </div>
 <div class="row questions">
-    <div class="col-md-12 question">
-        <div class="question" *ngFor="let question of questionnaire.questions;let index=index">
-            <div class="edit-btns">
-                <i class="glyphicon glyphicon-ok" (click)="save_question(question)" title="保存"></i>
-                &nbsp;
-                <i class="glyphicon glyphicon-trash" (click)="delete_question(index)" title="删除"></i>
-                &nbsp;
-                <i class="glyphicon glyphicon-arrow-up" (click)="up_question(index)" title="上移"></i>
-                &nbsp;
-                <i class="glyphicon glyphicon-arrow-down" (click)="down_question(index)" title="下移"></i>
-            </div>
+    <div class="col-md-12">
+        <div *ngFor="let question of questionnaire.questions;let index=index">
+            <div class="question" *ngIf="question.edit">
+                <div class="edit-btns">
+                    <i class="glyphicon glyphicon-ok" (click)="save_question(question)" title="保存"></i>
+                    &nbsp;
+                    <i class="glyphicon glyphicon-trash" (click)="delete_question(index)" title="删除"></i>
+                    &nbsp;
+                    <i class="glyphicon glyphicon-arrow-up" (click)="up_question(index)" title="上移"></i>
+                    &nbsp;
+                    <i class="glyphicon glyphicon-arrow-down" (click)="down_question(index)" title="下移"></i>
+                </div>
 
-            <div class="title">
-                {{index+1}}.&nbsp;&nbsp;
-                <input type="title" name="title_{{index}}" [(ngModel)]="question.title" placeholder="问题">
-            </div>
-            <div class="items">
-                <div class="item" *ngFor="let item of question.items;let itemindex=index">
-                    {{itemindex+1}}.&nbsp;&nbsp;
-                    <input type="text" name="item_{{index}}_{{itemindex}}" [(ngModel)]="item.content">
-                    <span>
-                        <i class="glyphicon glyphicon-arrow-up" (click)="up_question_item(question,itemindex)"></i>
-                        &nbsp;
-                        <i class="glyphicon glyphicon-arrow-down" (click)="down_question_item(question,itemindex)"></i>
-                        &nbsp;
-                        <i class="glyphicon glyphicon-trash" (click)="remove_question_item(question,itemindex)"></i>
-                    </span>
+                <div class="title">
+                    {{index+1}}.&nbsp;&nbsp;
+                    <input type="title" name="title_{{index}}" [(ngModel)]="question.title" placeholder="问题">
+                </div>
+                <div class="items">
+                    <div class="item" *ngFor="let item of question.items;let itemindex=index">
+                        {{itemindex+1}}.&nbsp;&nbsp;
+                        <input type="text" name="item_{{index}}_{{itemindex}}" [(ngModel)]="item.content">
+                        <span>
+                            <i class="glyphicon glyphicon-arrow-up" (click)="up_question_item(question,itemindex)"></i>
+                            &nbsp;
+                            <i class="glyphicon glyphicon-arrow-down" (click)="down_question_item(question,itemindex)"></i>
+                            &nbsp;
+                            <i class="glyphicon glyphicon-trash" (click)="remove_question_item(question,itemindex)"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="add-new-item">
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <i class="glyphicon glyphicon-plus" (click)="add_question_item(question)"></i>
                 </div>
             </div>
-            <div class="add-new-item">
-                &nbsp; &nbsp; &nbsp; &nbsp;
-                <i class="glyphicon glyphicon-plus" (click)="add_question_item(question)"></i>
+            <div class="question" *ngIf="!question.edit">
+                <div class="edit-btns">
+                    <i class="glyphicon glyphicon-pencil" (click)="edit_question(question)" title="保存"></i>
+                    &nbsp;
+                    <i class="glyphicon glyphicon-arrow-up" (click)="up_question(index)" title="上移"></i>
+                    &nbsp;
+                    <i class="glyphicon glyphicon-arrow-down" (click)="down_question(index)" title="下移"></i>
+                </div>
+                <div class="title">
+                    {{index+1}}.&nbsp;&nbsp;{{question.title}}
+                </div>
+                <div class="items">
+                    <div class="item" *ngFor="let item of question.items;let itemindex=index">
+                        {{itemindex+1}}.&nbsp;&nbsp;{{item.content}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

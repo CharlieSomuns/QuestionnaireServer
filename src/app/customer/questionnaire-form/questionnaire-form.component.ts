@@ -9,8 +9,16 @@ import { sessionstorage } from '../../utils/storage'
     styleUrls: ['./questionnaire-form.component.css']
 })
 export class QuestionnaireFormComponent implements OnInit {
+    // 问卷接口
     api = '/api/v1/customer_questionnaire'
+    // 问题接口
+    quetion_api = '/api/v1/customer_question'
+    // 问题题号接口
+    quetion_index_api = '/api/v1/question_index'
+
+    // 问卷id
     questionnaire_id: any
+    // 问题类型
     categorys = [
         {
             name: '单选题',
@@ -22,6 +30,7 @@ export class QuestionnaireFormComponent implements OnInit {
         },
     ]
     now = new Date()
+    // 问卷对象
     questionnaire: any = {
         title: '',
         deadline: this.now.getFullYear() + '-' + (this.now.getMonth() + 1) + '-' + this.now.getDate(),
@@ -33,10 +42,9 @@ export class QuestionnaireFormComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.get()
+        this.get_questionnaire()
     }
     up_question(index) {
-        console.log('up')
         if (index <= 0) return;
         let current = this.questionnaire.questions[index]
         let pre = this.questionnaire.questions[index - 1]
@@ -44,29 +52,39 @@ export class QuestionnaireFormComponent implements OnInit {
         this.questionnaire.questions[index - 1] = current
     }
     down_question(index) {
-        console.log('down')
         if (index >= this.questionnaire.questions.length - 1) return;
         let current = this.questionnaire.questions[index]
         let next = this.questionnaire.questions[index + 1]
         this.questionnaire.questions[index] = next
         this.questionnaire.questions[index + 1] = current
     }
-    add_quesiton(category) {
+    // 修改问题
+    edit_question(question) {
+        question.edit = true
+    }
+    // 添加问题
+    add_quesiton(item) {
         this.questionnaire.questions.push(
             {
+                id: 0,
                 title: '',
-                items: []
+                category: item.category,
+                items: [],
+                edit: true
             }
         )
     }
+    // 添加问题选项
     add_question_item(question) {
         question.items.push({
             content: ''
         })
     }
+    // 移除问题选项
     remove_question_item(question, index) {
         question.items.splice(index, 1)
     }
+    // 问题选项上移
     up_question_item(question, index) {
         if (index <= 0) return;
         let current = question.items[index]
@@ -74,6 +92,7 @@ export class QuestionnaireFormComponent implements OnInit {
         question.items[index] = pre
         question.items[index - 1] = current
     }
+    // 问题选项下移
     down_question_item(question, index) {
         if (index >= question.items.length - 1) return;
         let current = question.items[index]
@@ -81,17 +100,25 @@ export class QuestionnaireFormComponent implements OnInit {
         question.items[index] = next
         question.items[index + 1] = current
     }
+    // 保存问题
     save_question(question) {
+        console.log(question)
+        question.edit = false
         let ajax = new Ajax()
         ajax.success = data => {
         }
-
     }
-
+    // 删除问题
     delete_question(index) {
         this.questionnaire.questions.splice(index, 1)
     }
-    get() {
+    // 更新问题题号
+    post_question_index(question) {
+        if (question.id != 0) {
+        }
+    }
+
+    get_questionnaire() {
         let that = this
         let ajax = new Ajax()
         let query_data = {
@@ -104,7 +131,6 @@ export class QuestionnaireFormComponent implements OnInit {
         }
         ajax.get(that.api, query_data)
     }
-    post() {
-
+    post_questionnaire() {
     }
 }
