@@ -1,4 +1,6 @@
 <div class="white-space"></div>
+<span class="save-btn" (click)="post_questionnaire(0)">保存</span>
+<span class="comment-btn" (click)="post_questionnaire(1)">审核</span>
 <div class="col-md-12 new-form">
     <div class="row">
         <div class="col-md-4 col-sm-12">
@@ -20,7 +22,7 @@
         <div *ngFor="let question of questionnaire.questions;let index=index">
             <div class="question" *ngIf="question.edit">
                 <div class="edit-btns">
-                    <i class="glyphicon glyphicon-ok" (click)="save_question(question)" title="保存"></i>
+                    <i class="glyphicon glyphicon-ok" (click)="save_question(question,index)" title="保存"></i>
                     &nbsp;
                     <i class="glyphicon glyphicon-trash" (click)="delete_question(index)" title="删除"></i>
                     &nbsp;
@@ -31,6 +33,9 @@
 
                 <div class="title">
                     {{index+1}}.&nbsp;&nbsp;
+                    <span *ngIf="question.category==='radio'">单选</span>
+                    <span *ngIf="question.category==='select'">多选</span>
+                    &nbsp;&nbsp;
                     <input type="title" name="title_{{index}}" [(ngModel)]="question.title" placeholder="问题">
                 </div>
                 <div class="items">
@@ -62,7 +67,10 @@
                     <i class="glyphicon glyphicon-arrow-down" (click)="down_question(index)" title="下移"></i>
                 </div>
                 <div class="title">
-                    {{index+1}}.&nbsp;&nbsp;{{question.title}}
+                    {{index+1}}.&nbsp;&nbsp;
+                    <span *ngIf="question.category==='radio'">单选</span>
+                    <span *ngIf="question.category==='select'">多选</span>
+                    &nbsp;&nbsp;{{question.title}}
                 </div>
                 <div class="items">
                     <div class="item" *ngFor="let item of question.items;let itemindex=index">

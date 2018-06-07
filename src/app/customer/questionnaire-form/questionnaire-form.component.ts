@@ -50,6 +50,8 @@ export class QuestionnaireFormComponent implements OnInit {
         let pre = this.questionnaire.questions[index - 1]
         this.questionnaire.questions[index] = pre
         this.questionnaire.questions[index - 1] = current
+        this.post_question_index(this.questionnaire.questions[index], index)
+        this.post_question_index(this.questionnaire.questions[index - 1], index - 1)
     }
     down_question(index) {
         if (index >= this.questionnaire.questions.length - 1) return;
@@ -57,6 +59,9 @@ export class QuestionnaireFormComponent implements OnInit {
         let next = this.questionnaire.questions[index + 1]
         this.questionnaire.questions[index] = next
         this.questionnaire.questions[index + 1] = current
+        this.post_question_index(this.questionnaire.questions[index], index)
+        this.post_question_index(this.questionnaire.questions[index + 1], index + 1)
+
     }
     // 修改问题
     edit_question(question) {
@@ -101,20 +106,41 @@ export class QuestionnaireFormComponent implements OnInit {
         question.items[index + 1] = current
     }
     // 保存问题
-    save_question(question) {
-        console.log(question)
-        question.edit = false
+    save_question(question, index) {
         let ajax = new Ajax()
         ajax.success = data => {
+            if (data.id) {
+                question.id = data.id
+            }
+            question.edit = false
+        }
+        question.index = index
+        question.questionnaire_id = this.questionnaire_id
+        let items = []
+        if (question.id === 0) {
+            ajax.put(this.quetion_api, question, false)
+        } else {
+            ajax.post(this.quetion_api, question, false)
         }
     }
     // 删除问题
     delete_question(index) {
+        let question = this.questionnaire.questions[index]
+        if (question.id != 0) {
+            let ajax = new Ajax()
+            ajax.delete(this.quetion_api, {
+                'ids': [question.id]
+            })
+        }
         this.questionnaire.questions.splice(index, 1)
     }
     // 更新问题题号
-    post_question_index(question) {
+    post_question_index(question, index) {
         if (question.id != 0) {
+            let ajax = new Ajax()
+            question.index = index
+            question.questionnaire_id = this.questionnaire_id
+            ajax.post(this.quetion_index_api, question, false)
         }
     }
 
@@ -131,6 +157,18 @@ export class QuestionnaireFormComponent implements OnInit {
         }
         ajax.get(that.api, query_data)
     }
-    post_questionnaire() {
+    post_questionnaire(state) {
+        let ajax = new Ajax()
+        let data = {
+            questionnaire_id: this.questionnaire_id,
+            title: this.questionnaire.title,
+            deadline: this.questionnaire.deadline,
+            quantity: this.questionnaire.quantity,
+            state: state
+        }
+        ajax.success = data => {
+            alert('提交成功!')
+        }
+        ajax.post(this.api, data)
     }
 }
