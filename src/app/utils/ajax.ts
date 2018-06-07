@@ -92,14 +92,14 @@ export class Ajax {
         console.log('not login')
     }
     server_error() {
-        console.log('服务器发生错误')
+        alert('服务器发生错误')
     }
     params_error(errors) {
         let msg = ''
         for (let key in errors) {
             msg += errors[key] + ';'
         }
-        console.log(msg)
+        alert(msg)
     }
 }
 

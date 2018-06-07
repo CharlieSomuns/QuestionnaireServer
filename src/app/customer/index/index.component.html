@@ -25,7 +25,7 @@
             {{item.create_date}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.title}}
         </div>
         <div class="utils col-md-2 col-sm-2 col-xs-4">
-            <span class="btn btn-xs btn-info" title="修改" *ngIf="item.state!=1 || item.state!=4" (click)="edit(index)">
+            <span class="btn btn-xs btn-info" title="修改" *ngIf="item.state!=1 && item.state!=4" (click)="edit(index)">
                 <i class="glyphicon glyphicon-pencil"></i>
             </span>
             <span class="btn btn-xs btn-danger" title="删除" *ngIf="item.state!=4" (click)="delete(index)">
