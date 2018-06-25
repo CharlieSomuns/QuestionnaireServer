@@ -9,11 +9,23 @@ import { Ajax } from '../utils/ajax'
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+    user = {
+        username: "",
+        password: ""
+    }
+    regist = {
+        username: "",
+        password: "",
+        ensure_password: "",
+        regist_code: "",
+        category:'customer'
+    }
+    regist_code = "点击"
+    show_regist = false;
     constructor(private router: Router) {
         this.get()
     }
-    login() {
+    login_user() {
         let that = this
         let ajax = new Ajax()
         ajax.params_error = (data) => {
@@ -22,24 +34,15 @@ export class LoginComponent {
         ajax.success = (data) => {
             that.get()
         }
-        ajax.put('/api/v1/session', {
-            username: 'customer1',
-            password: '1234567'
-        })
+        ajax.put('/api/v1/session', that.user)
     }
-    login_admin() {
+    regist_user() {
         let that = this
         let ajax = new Ajax()
-        ajax.params_error = (data) => {
-            alert('用户名或密码错误')
-        }
         ajax.success = (data) => {
-            that.get()
+            that.redirect('customer')
         }
-        ajax.put('/api/v1/session', {
-            username: 'admin',
-            password: '1234admin'
-        })
+        ajax.put('/api/v1/user', that.regist)
     }
     redirect(category) {
         if (category == 'customer') {
@@ -59,5 +62,15 @@ export class LoginComponent {
             that.redirect(data.category)
         }
         ajax.get('/api/v1/user', {})
+    }
+    get_regist_code() {
+        console.log("get")
+        let that = this;
+        let ajax = new Ajax()
+        ajax.success = (data) => {
+            that.regist_code = data.regist_code
+        }
+        console.log('api')
+        ajax.get('/api/v1/regist_code', {})
     }
 }

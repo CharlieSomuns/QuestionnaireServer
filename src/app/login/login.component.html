@@ -1,5 +1,44 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <button (click)="login()">客户登录</button>
-    <button (click)="login_admin()">管理员登录</button>
+<div class="login-page">
+    <div class="form" *ngIf="!show_regist">
+        <!-- <button (click)="login()">客户登录</button>
+        <button (click)="login_admin()">管理员登录</button> -->
+        <form action="">
+            <div>
+                <input type="text" placeholder="用户名" name="username" [(ngModel)]="user.username">
+            </div>
+            <div>
+                <input type="password" placeholder="密码" name="password" [(ngModel)]="user.password">
+            </div>
+            <div>
+                <button class="btn btn-sm btn-info" (click)="login_user()">登录</button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button class="btn btn-sm btn-primary" (click)="show_regist=true">注册</button>
+            </div>
+        </form>
+
+    </div>
+    <div class="form" *ngIf="show_regist">
+        <form action="">
+            <div>
+                <input type="text" placeholder="用户名" name="username" [(ngModel)]="regist.username">
+            </div>
+            <div>
+                <input type="password" placeholder="密码" name="password" [(ngModel)]="regist.password">
+            </div>
+            <div>
+                <input type="password" placeholder="确认密码" name="ensure_password" [(ngModel)]="regist.ensure_password">
+            </div>
+            <div class="regist-code">
+                <input type="text" placeholder="注册码" name="regist_code" [(ngModel)]="regist.regist_code">
+                <span class="reigst-code-btn" (click)="get_regist_code()">{{regist_code}}</span>
+            </div>
+            <div>
+                <button class="btn btn-sm btn-primary" (click)="regist_user()">注册</button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button class="btn btn-xs btn-default" (click)="show_regist=false">取消</button>
+            </div>
+        </form>
+
+    </div>
 </div>

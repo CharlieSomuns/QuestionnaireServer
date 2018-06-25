@@ -1,0 +1,48 @@
+.login-page{
+    height: 100%;
+    width: 100%;
+    text-align:center;
+    background-image: url('/static/images/background.png');
+    background-position: left top;
+    background-size: cover;
+    background-attachment: fixed;
+    .form {
+        padding-top: 100px;
+        form{
+            margin: 0 auto;
+            width: 400px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            box-shadow: 0 1px 3px;
+            padding: 20px;
+            div{
+                margin-bottom: 8px;
+                input{
+                    border: solid gray 1px;
+                    border-radius: 3px;
+                    padding: 5px;
+                    width: 250px;
+                    &:focus{
+                        outline: none;
+                        border: solid darkcyan 1px;
+                    }
+                }
+                &.regist-code{
+                    position: relative;
+                    .reigst-code-btn{
+                        position: absolute;
+                        right: 0px;
+                        top:0px;
+                        background-color: white;
+                        display: inline-block;
+                        padding: 6px;
+                        border-radius: 2px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            
+
+        }
+    }
+}
