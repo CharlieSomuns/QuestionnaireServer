@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'
+
 import { Ajax } from '../utils/ajax'
 
 @Component({
@@ -9,13 +11,21 @@ import { Ajax } from '../utils/ajax'
 export class AdminComponent {
     title = 'app';
 
-    constructor() {
+    constructor(private router: Router) {
 
     }
     get() {
 
     }
+    back(){
+        window.history.back()
+    }
     logout() {
-
+        let that = this
+        let ajax = new Ajax()
+        ajax.success = (data) => {
+            this.router.navigateByUrl('/')
+        }
+        ajax.delete('/api/v1/session', {})
     }
 }
