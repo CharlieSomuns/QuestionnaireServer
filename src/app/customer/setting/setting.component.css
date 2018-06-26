@@ -1,0 +1,49 @@
+.white-space {
+  height: 30px;
+}
+.tabs {
+  list-style: none;
+  border-right: solid silver 1px;
+  padding-right: 8px;
+}
+.tabs li {
+  text-align: right;
+  padding: 5px;
+  cursor: pointer;
+}
+.tabs li.active {
+  color: #1976d2;
+}
+.tabs li:hover {
+  color: #1976d2;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.form .row {
+  margin-top: 8px;
+}
+.form .row div:first-child {
+  text-align: right;
+  padding: 5px;
+}
+.form input {
+  width: 250px;
+  padding: 3px;
+  border-radius: 3px;
+  border: solid silver 1px;
+}
+.form input:focus {
+  border: solid #1976d2 1px;
+  outline: none;
+}
+.form textarea {
+  width: 400px;
+  height: 150px;
+  padding: 3px;
+  border-radius: 3px;
+  border: solid silver 1px;
+  resize: none;
+}
+.form textarea:focus {
+  border: solid #1976d2 1px;
+  outline: none;
+}

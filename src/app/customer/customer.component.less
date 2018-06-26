@@ -12,17 +12,24 @@
         text-align: right;
         float: right;
         width: 300px;
-        .btn {
+        .item {
             margin-right: 5px;
             padding-left: 10px;
             padding-right: 10px;
             cursor: pointer;
             border-right: solid silver 1px;
+            border-radius: 0px;
             &:hover {
                 color: #3da8f5;
             }
             &:last-child {
                 border-right: none;
+            }
+            &:active{
+                outline: none;
+            }
+            &:focus{
+                outline: none;
             }
         }
     }

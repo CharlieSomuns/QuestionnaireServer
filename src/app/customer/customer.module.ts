@@ -7,8 +7,10 @@ import { FormsModule } from "@angular/forms";
 import { CustomerRoutingModule } from './customer-routing.module'
 import { CustomerComponent } from './customer.component';
 import { IndexComponent } from './index/index.component';
-import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component'
-import { QuestionnaireViewComponent } from './questionnaire-view/questionnaire-view.component'
+import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component';
+import { QuestionnaireViewComponent } from './questionnaire-view/questionnaire-view.component';
+import { SettingComponent } from './setting/setting.component';
+import { WalletComponent } from './wallet/wallet.component'
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { QuestionnaireViewComponent } from './questionnaire-view/questionnaire-v
         IndexComponent,
         QuestionnaireFormComponent,
         QuestionnaireViewComponent,
+        SettingComponent,
+        WalletComponent,
     ],
     imports: [
         CommonModule,
@@ -27,4 +31,4 @@ import { QuestionnaireViewComponent } from './questionnaire-view/questionnaire-v
     bootstrap: [CustomerComponent]
 })
 export class CustomerModule {
- }
+}

@@ -3,10 +3,10 @@
     <span (click)="back()">
         <i class="fa fa-arrow-left"></i>&nbsp;后退</span>
     <div class="right">
-        <!-- <span class="btn">帮助</span> -->
-        <span class="btn">钱包</span>
-        <span class="btn">设置</span>
-        <span class="btn" (click)="logout()">退出</span>
+        <span class="item" routerLink="/customer/">问卷</span>
+        <span class="item" routerLink="/customer/wallet">钱包</span>
+        <span class="item" routerLink="/customer/setting">设置</span>
+        <span class="item" (click)="logout()">退出</span>
     </div>
 </div>
 <div class="content container">
