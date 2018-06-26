@@ -168,6 +168,7 @@ export class QuestionnaireFormComponent implements OnInit {
         }
         ajax.success = data => {
             alert('提交成功!')
+            window.history.back()
         }
         ajax.post(this.api, data)
     }

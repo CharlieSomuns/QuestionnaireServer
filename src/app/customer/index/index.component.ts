@@ -90,6 +90,7 @@ export class IndexComponent implements OnInit {
         }
         this.get()
     }
+    // 查询问卷
     get() {
         let that = this
         let ajax = new Ajax()
@@ -105,12 +106,14 @@ export class IndexComponent implements OnInit {
         }
         ajax.get(that.api, query_data)
     }
+    // 删除问卷
     delete(index) {
         let that = this
         let ensure = window.confirm('确认删除吗?')
         if (ensure) {
             let ajax = new Ajax()
             ajax.success = data => {
+                alert('删除成功!')
                 that.questionnaires.splice(index, 1)
             }
             ajax.delete(that.api, {
@@ -118,6 +121,7 @@ export class IndexComponent implements OnInit {
             })
         }
     }
+    // 新增问卷
     put() {
         let that = this
         let ajax = new Ajax()
@@ -127,18 +131,26 @@ export class IndexComponent implements OnInit {
         }
         ajax.put(that.api, that.new_questionnaire)
     }
+    // 编辑问卷
     edit(index) {
         sessionstorage.set('questionnaire_id', this.questionnaires[index].id)
         this.router.navigateByUrl('/customer/questionnaire-form')
     }
+    // 发布问卷
     publish(index) {
         let that = this
         let ajax = new Ajax()
         ajax.success = data => {
+            alert('发布成功!')
             that.questionnaires.splice(index, 1)
         }
         ajax.put('/api/v1/questionnaire_state', {
             questionnaire_id: that.questionnaires[index].id
         })
+    }
+    // 查看问卷
+    view(index){
+        sessionstorage.set('questionnaire_id', this.questionnaires[index].id)
+        this.router.navigateByUrl('/customer/questionnaire-view')
     }
 }

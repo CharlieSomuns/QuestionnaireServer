@@ -8,6 +8,7 @@ import { CustomerRoutingModule } from './customer-routing.module'
 import { CustomerComponent } from './customer.component';
 import { IndexComponent } from './index/index.component';
 import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component'
+import { QuestionnaireViewComponent } from './questionnaire-view/questionnaire-view.component'
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-f
         CustomerComponent,
         IndexComponent,
         QuestionnaireFormComponent,
+        QuestionnaireViewComponent,
     ],
     imports: [
         CommonModule,
@@ -24,4 +26,5 @@ import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-f
     providers: [],
     bootstrap: [CustomerComponent]
 })
-export class CustomerModule { }
+export class CustomerModule {
+ }

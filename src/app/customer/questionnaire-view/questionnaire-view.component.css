@@ -1,0 +1,39 @@
+.white-space {
+  height: 30px;
+}
+.questions .question {
+  margin-top: 15px;
+  position: relative;
+}
+.questions .question .items {
+  padding-left: 30px;
+}
+.comment {
+  margin-top: 20px;
+}
+.comment .title {
+  font-size: 1.2em;
+}
+.comment .comment-history {
+  margin-top: 5px;
+  padding: 10px;
+}
+.comment .new-comment {
+  margin-top: 20px;
+}
+.comment .new-comment textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+.comment .new-comment textarea:focus {
+  outline: none;
+}
+.comment .comment-btn {
+  text-align: right;
+}
+.comment .comment-btn span {
+  margin-right: 20px;
+}

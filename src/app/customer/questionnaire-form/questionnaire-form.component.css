@@ -93,3 +93,13 @@ input:focus {
 .categorys .category {
   margin-right: 10px;
 }
+.comment {
+  margin-top: 60px;
+}
+.comment .title {
+  font-size: 1.2em;
+}
+.comment .comment-history {
+  margin-top: 5px;
+  padding: 10px;
+}

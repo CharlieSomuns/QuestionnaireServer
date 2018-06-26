@@ -28,12 +28,16 @@
             <span class="btn btn-xs btn-info" title="修改" *ngIf="item.state!=1 && item.state!=4" (click)="edit(index)">
                 <i class="glyphicon glyphicon-pencil"></i>
             </span>
-            <span class="btn btn-xs btn-danger" title="删除" *ngIf="item.state!=4" (click)="delete(index)">
+            <span class="btn btn-xs btn-danger" title="删除" *ngIf="item.state!=1 && item.state!=4" (click)="delete(index)">
                 <i class="glyphicon glyphicon-trash"></i>
             </span>
-            <span class="btn btn-xs btn-success" title="发布" *ngIf="item.state==3" (click)="publish(index)">
+            <span class="btn btn-xs btn-success" title="发布" *ngIf="item.state===3" (click)="publish(index)">
                 <i class="glyphicon glyphicon-pushpin"></i>
             </span>
+            <span class="btn btn-xs btn-success" title="查看" *ngIf="item.state===4" (click)="view(index)">
+                <i class="fa fa-eye"></i>
+            </span>
+
         </div>
     </div>
     <div class="project row" *ngIf="questionnaires.length==0 && query_state!=0">

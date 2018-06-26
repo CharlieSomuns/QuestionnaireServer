@@ -17,6 +17,20 @@
         </div>
     </div>
 </div>
+<div class="comment" *ngIf="questionnaire.state===2">
+    <div class="title">审核历史</div>
+    <div class="comment-history">
+        <div *ngFor="let comment of questionnaire.comments;let index=index">
+            {{index+1}}.&nbsp;{{comment.create_date}}
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;{{comment.comment}}
+            </div>
+        </div>
+        <div *ngIf="questionnaire.comments.length===0">
+            暂无
+        </div>
+    </div>
+</div>
 <div class="row questions">
     <div class="col-md-12">
         <div *ngFor="let question of questionnaire.questions;let index=index">

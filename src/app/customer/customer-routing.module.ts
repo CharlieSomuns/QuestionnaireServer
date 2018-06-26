@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { CustomerComponent } from './customer.component'
 import { IndexComponent } from './index/index.component'
 import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component'
+import { QuestionnaireViewComponent } from './questionnaire-view/questionnaire-view.component'
 
 const customerRoutes: Routes = [
     {
@@ -17,6 +18,10 @@ const customerRoutes: Routes = [
             {
                 path:'questionnaire-form',
                 component:QuestionnaireFormComponent
+            },
+            {
+                path:'questionnaire-view',
+                component:QuestionnaireViewComponent
             }
         ]
     }
