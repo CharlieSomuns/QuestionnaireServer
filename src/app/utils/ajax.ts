@@ -1,5 +1,5 @@
+import { Router } from '@angular/router';
 export class Ajax {
-    xhr = new XMLHttpRequest()
     constructor() {
     }
     get(path, data, async = true) {
@@ -8,7 +8,7 @@ export class Ajax {
             query = ''
         }
         let that = this
-        let xhr = that.xhr
+        let xhr = new XMLHttpRequest()
         xhr.onreadystatechange = (e) => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
@@ -41,7 +41,7 @@ export class Ajax {
     }
     post(path, data, async = true, override = '', content_type = 'application/json') {
         let that = this
-        let xhr = this.xhr
+        let xhr = new XMLHttpRequest()
         xhr.onreadystatechange = (e) => {
             if (xhr.readyState === 4) {
                 if (xhr.status == 200) {
@@ -71,10 +71,10 @@ export class Ajax {
         };
         xhr.open('post', path, async);
         if (override !== '') {
-            this.xhr.setRequestHeader('X-Method', override);
+            xhr.setRequestHeader('X-Method', override);
         }
         if (content_type !== '') {
-            this.xhr.setRequestHeader('Content-Type', content_type);
+            xhr.setRequestHeader('Content-Type', content_type);
         }
         xhr.send(JSON.stringify(data))
     }
@@ -88,8 +88,8 @@ export class Ajax {
     success(data) {
         console.log(data)
     }
-    not_login() {
-        console.log('not login')
+    not_login() {   
+        
     }
     server_error() {
         alert('服务器发生错误')
