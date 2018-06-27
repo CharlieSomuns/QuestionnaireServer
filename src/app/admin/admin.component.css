@@ -14,18 +14,26 @@
   float: right;
   width: 300px;
 }
-.header .right .btn {
+.header .right .item {
+  display: inline-block;
   margin-right: 5px;
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;
   border-right: solid silver 1px;
+  border-radius: 0px;
 }
-.header .right .btn:hover {
+.header .right .item:hover {
   color: #3da8f5;
 }
-.header .right .btn:last-child {
+.header .right .item:last-child {
   border-right: none;
+}
+.header .right .item:active {
+  outline: none;
+}
+.header .right .item:focus {
+  outline: none;
 }
 .content {
   margin-top: 60px;

@@ -7,29 +7,37 @@
     line-height: 50px;
     background-color: white;
     box-shadow: 0 1px 5px silver;
-    z-index:10000;
+    z-index: 10000;
     .right {
         text-align: right;
         float: right;
         width: 300px;
-        .btn {
+        .item {
+            display: inline-block;
             margin-right: 5px;
             padding-left: 10px;
             padding-right: 10px;
             cursor: pointer;
             border-right: solid silver 1px;
+            border-radius: 0px;
             &:hover {
                 color: #3da8f5;
             }
             &:last-child {
                 border-right: none;
             }
+            &:active {
+                outline: none;
+            }
+            &:focus {
+                outline: none;
+            }
         }
     }
 }
 
 .content {
-    margin-top:60px;
+    margin-top: 60px;
 }
 
 .footer {}
