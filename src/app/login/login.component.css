@@ -44,3 +44,10 @@
   border-radius: 2px;
   cursor: pointer;
 }
+.login-page .form form div.category label {
+  color: white;
+  margin-right: 20px;
+}
+.login-page .form form div.category input {
+  width: 20px;
+}

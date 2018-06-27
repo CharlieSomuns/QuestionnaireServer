@@ -18,7 +18,7 @@ export class LoginComponent {
         password: "",
         ensure_password: "",
         regist_code: "",
-        category:'customer'
+        category: 'customer'
     }
     regist_code = "点击"
     show_regist = false;
@@ -40,7 +40,11 @@ export class LoginComponent {
         let that = this
         let ajax = new Ajax()
         ajax.success = (data) => {
-            that.redirect('customer')
+            if (that.regist.category == 'customer') {
+                that.redirect('customer')
+            } else {
+                that.redirect('userinfo')
+            }
         }
         ajax.put('/api/v1/user', that.regist)
     }

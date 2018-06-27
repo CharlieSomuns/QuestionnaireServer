@@ -20,6 +20,12 @@
     </div>
     <div class="form" *ngIf="show_regist">
         <form action="">
+            <div class="category">
+                <label for="customer">
+                    <input type="radio" id="customer" value="customer" checked name="category" (click)="regist.category='customer'" />我要发布问卷</label>
+                <label for="userinfo">
+                    <input type="radio" id="userinfo" value="customer" name="category" (click)="regist.category='userinfo'" />我要参与问卷</label>
+            </div>
             <div>
                 <input type="text" placeholder="用户名" name="username" [(ngModel)]="regist.username">
             </div>
@@ -33,6 +39,7 @@
                 <input type="text" placeholder="注册码" name="regist_code" [(ngModel)]="regist.regist_code">
                 <span class="reigst-code-btn" (click)="get_regist_code()">{{regist_code}}</span>
             </div>
+
             <div>
                 <button class="btn btn-sm btn-primary" (click)="regist_user()">注册</button>
                 &nbsp; &nbsp; &nbsp; &nbsp;
