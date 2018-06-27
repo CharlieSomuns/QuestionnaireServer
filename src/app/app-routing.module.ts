@@ -19,6 +19,10 @@ const adminRoutes: Routes = [
     {
         path: 'customer',
         loadChildren: './customer/customer.module#CustomerModule'
+    },
+    {
+        path: 'user',
+        loadChildren: './user/user.module#UserModule'
     }
 ];
 

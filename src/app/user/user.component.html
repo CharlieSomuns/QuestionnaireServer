@@ -1,0 +1,16 @@
+<div class="header">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span (click)="back()">
+        <i class="fa fa-arrow-left"></i>&nbsp;后退</span>
+    <div class="right">
+        <span class="item" routerLink="/user/">首页</span>
+        <span class="item" routerLink="/user/questionnaire">我的问卷</span>
+        <span class="item" routerLink="/user/point">积分</span>
+        <span class="item" routerLink="/user/setting">设置</span>
+        <span class="item" (click)="logout()">退出</span>
+    </div>
+</div>
+<div class="content container">
+    <router-outlet></router-outlet>
+</div>
+<div class="footer"></div>

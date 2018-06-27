@@ -1,0 +1,42 @@
+.white-space {
+  height: 30px;
+}
+.join-btn {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  background-color: cornflowerblue;
+  position: fixed;
+  right: 40px;
+  top: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.questionnaire-title {
+  text-align: center;
+  font-size: 20px;
+}
+.questions .question .title {
+  font-size: 16px;
+}
+.questions .question .items {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+}
+.questions .question .items .item {
+  padding: 5px;
+}
+.questions .question .items .item .fa {
+  color: white;
+  border: solid silver 1px;
+}
+.questions .question .items .item .fa.category-radio {
+  border-radius: 50%;
+}
+.questions .question .items .item .fa.active {
+  color: blue;
+  border: solid blue 1px;
+}

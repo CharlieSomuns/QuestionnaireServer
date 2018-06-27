@@ -49,7 +49,7 @@ export class LoginComponent {
             this.router.navigateByUrl('/customer')
         }
         else if (category == 'userinfo') {
-            return false
+            this.router.navigateByUrl('/user')
         }
         else {
             this.router.navigateByUrl('/admin')

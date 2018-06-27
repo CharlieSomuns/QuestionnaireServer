@@ -1,0 +1,33 @@
+.white-space {
+  height: 30px;
+}
+.title {
+  font-size: 20px;
+}
+.utils {
+  text-align: right;
+}
+.utils .glyphicon {
+  cursor: pointer;
+}
+.utils .filters .filter {
+  margin-right: 8px;
+}
+.history {
+  margin-top: 20px;
+}
+.history table {
+  width: 100%;
+}
+.history table thead {
+  background-color: silver;
+}
+.history table thead td {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}
+.history table tbody td {
+  text-align: right;
+  padding: 5px;
+}

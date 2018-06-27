@@ -1,0 +1,114 @@
+<div class="white-space"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-xs-6">
+            <ul class="tabs">
+                <li *ngFor="let tab of tabs" [class.active]="tab.active" (click)="active_tab(tab)">{{tab.name}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-10 col-xs-12" *ngIf="tabs[0].active">
+            <div class="form">
+                <form action="">
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">姓名</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="name" [(ngModel)]="user.name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">年龄</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="age" [(ngModel)]="user.age">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">性别</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="gender" [(ngModel)]="user.gender">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">手机号码</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="phone" [(ngModel)]="user.phone">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">邮箱</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="email" [(ngModel)]="user.email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">地址</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="address" [(ngModel)]="user.address">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">出生日期</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="birthday" [(ngModel)]="user.birthday">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">QQ</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="qq" [(ngModel)]="user.qq">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">微信号</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="wechat" [(ngModel)]="user.wechat">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">职业</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="job" [(ngModel)]="user.job">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">收入水平</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="text" name="salary" [(ngModel)]="user.salary"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12"></div>
+                        <div class="col-sm-10 col-xs-12">
+                            <button class="btn btn-primary" (click)="post()">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-10 col-xs-12" *ngIf="tabs[1].active">
+            <div class="form">
+                <form action="">
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">密码</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="password" name="password" [(ngModel)]="pwd.password" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12">确认密码</div>
+                        <div class="col-sm-10 col-xs-12">
+                            <input type="password" name="ensure_password" [(ngModel)]="pwd.ensure_password" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12"></div>
+                        <div class="col-sm-10 col-xs-12">
+                            <button class="btn btn-primary" (click)="udpate_password()">更新</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

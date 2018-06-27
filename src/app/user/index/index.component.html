@@ -1,0 +1,37 @@
+<div>
+
+</div>
+<div class="projects">
+    <div class="utils">
+        <!-- <span class="filters">
+            <span *ngFor="let filter of filters" class='filter btn-sm btn btn-default' [class.btn-primary]="filter.active" (click)="query(filter)">{{filter.name}}</span>
+        </span> -->
+        <span>总页数: {{pages}}</span>
+        &nbsp;&nbsp;
+        <span>
+            每页数量
+            <select name="" [(ngModel)]="query_limit" (change)="change_limit()">
+                <option value="15">15</option>
+                <option value="25">25</option>
+                <option value="35">35</option>
+            </select>
+        </span>
+        &nbsp;&nbsp; 第 {{query_page}} 页 &nbsp;&nbsp;
+        <i class="glyphicon glyphicon-chevron-left" title="上一页" (click)="pre_page()"></i>
+        &nbsp;&nbsp;
+        <i class="glyphicon glyphicon-chevron-right" title="下一页" (click)="next_page()"></i>
+    </div>
+    <div class="project row" *ngFor="let item of questionnaires;let index=index">
+        <div class="col-md-10 col-sm-10 col-xs-8">
+            {{item.customer.name}}&nbsp;&nbsp;{{item.create_date}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.title}}
+        </div>
+        <div class="utils col-md-2 col-sm-2 col-xs-4">
+            <span class="btn btn-xs btn-default" title="查看" (click)="view(index)">
+                <i class="fa fa-eye"></i>
+            </span>
+        </div>
+    </div>
+    <div class="project row" *ngIf="questionnaires.length==0 && query_state!=0">
+        没有问卷
+    </div>
+</div>

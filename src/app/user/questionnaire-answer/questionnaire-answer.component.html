@@ -1,0 +1,42 @@
+<div class="white-space"></div>
+<div class="join-btn" (click)="done()">
+    完成
+</div>
+
+
+<div class="col-md-12 new-form">
+    <div class="row">
+        <div class="col-sm-12 questionnaire-title">
+            {{questionnaire.title}}
+        </div>
+        <!-- <div class="col-md-4 col-sm-12">
+            截止日期:&nbsp;{{questionnaire.deadline}}
+        </div>
+        <div class="col-md-4 col-sm-12">
+            数量:&nbsp;{{questionnaire.quantity}}
+        </div> -->
+    </div>
+</div>
+<div class="container">
+    <div class="row questions">
+        <div class="col-md-12">
+            <div *ngFor="let question of questionnaire.questions;let index=index">
+                <div class="question">
+                    <div class="title">
+                        {{index+1}}.&nbsp;&nbsp; {{question.title}} &nbsp;&nbsp;
+                        <span *ngIf="question.category==='radio'">(单选)</span>
+                        <span *ngIf="question.category==='select'">(多选)</span>
+                    </div>
+                    <div class="items">
+                        <div class="item" *ngFor="let item of question.items;let itemindex=index">
+                            <label (click)="select(question,item)">
+                                <i class="fa fa-check category-{{question.category}}" [class.active]="item.active"></i>
+                                &nbsp;&nbsp; {{item.content}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
