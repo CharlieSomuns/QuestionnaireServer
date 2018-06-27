@@ -1,0 +1,60 @@
+.white-space {
+    height: 30px;
+}
+
+.tabs {
+    list-style: none;
+    border-right: solid silver 1px;
+    padding-right: 8px;
+    li {
+        text-align: right;
+        padding: 5px;
+        cursor: pointer;
+        &.active {
+            color: #1976d2;
+        }
+        &:hover {
+            color: #1976d2;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.balance {
+    font-size: 18px;
+}
+
+.put-balance {
+    margin-top: 30px;
+    input {
+        border-radius: 3px;
+        border: none;
+        outline: none;
+        border: solid silver 2px;
+        text-align: right;
+        &:focus {
+            border: solid green 2px;
+        }
+    }
+}
+
+.payment-select {
+    margin-top: 10px;
+    .payment {
+        margin-top: 20px;
+        span {
+            cursor: pointer;
+            margin-left: 20px;
+            img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    }
+    .payment-qrcode {
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    }
+}

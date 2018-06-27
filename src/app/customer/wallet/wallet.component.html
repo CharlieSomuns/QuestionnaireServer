@@ -1,0 +1,39 @@
+<div class="white-space"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-xs-6">
+            <ul class="tabs">
+                <li *ngFor="let tab of tabs" [class.active]="tab.active" (click)="active_tab(tab)">{{tab.name}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-10 col-xs-12" *ngIf="tabs[0].active">
+            <div class="balance">
+                可用余额: {{wallet.balance}}
+            </div>
+            <div class="put-balance">
+
+                <div>
+                    充值:
+                    <input type="text" name="amount" [(ngModel)]="amount">
+                </div>
+                <div class="payment-select">
+                    支付方式
+                    <div class="payment">
+                        <span class="img" *ngFor="let item of payments" (click)="get_qrcode(item.name)">
+                            <img [src]="item.src" alt="" />
+                        </span>
+                    </div>
+                    <div class="payment-qrcode" *ngIf="qrcode">
+                        扫码支付
+                        <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+qrcode)" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 col-xs-12" *ngIf="tabs[1].active">
+            <customer-walletflow></customer-walletflow>
+        </div>
+
+    </div>
+
+</div>
