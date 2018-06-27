@@ -1,0 +1,39 @@
+<div>
+    <div class="utils">
+        <span class="filters">
+            <span *ngFor="let filter of filters" class='filter btn-sm btn btn-default' [class.btn-primary]="filter.active" (click)="query(filter)">{{filter.name}}</span>
+        </span>
+        <span>总页数: {{pages}}</span>
+        &nbsp;&nbsp;
+        <span>
+            每页数量
+            <select name="" [(ngModel)]="query_limit" (change)="change_limit()">
+                <option value="15">15</option>
+                <option value="25">25</option>
+                <option value="35">35</option>
+            </select>
+        </span>
+        &nbsp;&nbsp; 第 {{query_page}} 页 &nbsp;&nbsp;
+        <i class="glyphicon glyphicon-chevron-left" title="上一页" (click)="pre_page()"></i>
+        &nbsp;&nbsp;
+        <i class="glyphicon glyphicon-chevron-right" title="下一页" (click)="next_page()"></i>
+    </div>
+</div>
+<div class="history">
+    <table>
+        <thead>
+            <tr>
+                <td>金额</td>
+                <td>时间</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of walletflows">
+                <td>{{item.amount}}</td>
+                <td>{{item.create_date}}</td>
+                <td>{{item.reason}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
