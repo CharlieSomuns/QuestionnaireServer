@@ -10,7 +10,8 @@ import { IndexComponent } from './index/index.component';
 import { QuestionnaireFormComponent } from './questionnaire-form/questionnaire-form.component';
 import { QuestionnaireViewComponent } from './questionnaire-view/questionnaire-view.component';
 import { SettingComponent } from './setting/setting.component';
-import { WalletComponent } from './wallet/wallet.component'
+import { WalletComponent } from './wallet/wallet.component';
+import { WalletFlowComponent } from './walletflow/walletflow.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { WalletComponent } from './wallet/wallet.component'
         QuestionnaireViewComponent,
         SettingComponent,
         WalletComponent,
+        WalletFlowComponent,
     ],
     imports: [
         CommonModule,
